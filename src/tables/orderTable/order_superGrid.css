@@ -1,0 +1,187 @@
+.pro-table {
+  width: 100%;
+  /* overflow-x: auto; */
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  font-weight: 600;
+  color: #555;
+  background: #fafafa;
+}
+
+.table-row {
+  transition: background 0.2s ease;
+}
+
+.table-row:hover {
+  background: #f4f6ff;
+}
+
+/* Column shrinked */
+.expand-col {
+  max-width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: max-width .25s ease;
+}
+
+/* On hover expanded */
+.table-row:hover .expand-col {
+  max-width: 500px;
+}
+
+/* Expand Arrow Cell */
+.icon-cell {
+  width: 40px;
+  cursor: pointer;
+  color: #444;
+}
+
+.expand-row td {
+  background: #fafbff;
+  padding: 0;
+}
+
+.expand-box {
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+
+.superGrid_filerRow {
+  padding: 16px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pro-table .superGrid_filerRow .searchBar {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  align-items: center;
+  background: #ffffff7d;
+  /* background: rgba(0, 0, 0, 0.5) !important; */
+  border-radius: 14px;
+  padding: 10px 14px;
+  border: 1px solid #cdcdcd;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.07);
+}
+
+.pro-table .superGrid_filerRow .searchBar .search-icon {
+  font-size: 18px;
+  color: #8c8c8c;
+  margin-right: 8px;
+}
+
+.pro-table .superGrid_filerRow .searchBar .search_input_field {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+  color: #444;
+}
+
+.search-input::placeholder {
+  color: #9b9b9b;
+}
+
+
+/* ---------------------SORT BY COMPONENT ---------------------- */
+.sort-container {
+  position: relative;
+  width: 180px;
+  font-family: sans-serif;
+}
+
+.sort-btn {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #bdbdbd;
+  outline: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+button.sort-btn:focus {
+  outline: none;
+  border: 1px solid #bdbdbd;
+}
+button.sort-btn:hover{
+  border: 1px solid #bdbdbd;
+}
+.arrow {
+  transition: 0.25s ease;
+  color: #888;
+  font-size: 14px;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  margin-top: 6px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  /* overflow: hidden; */
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.15s;
+}
+
+.dropdown-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #333;
+}
+
+.dropdown-item:hover {
+  background: #f5f5f5;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.superGrid_filerRow .filters_box .sort-container {
+  position: relative;
+}
+
+
+.superGrid_filerRow .filters_box .sort-container .dropdown {
+  position: absolute;
+  z-index: 99;
+}

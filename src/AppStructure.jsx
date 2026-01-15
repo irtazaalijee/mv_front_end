@@ -1,13 +1,27 @@
-import React, { useRef, useEffect, useState  } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { changeNavigationScreen } from './features/user slice/NavigationSlice.js'
 // logos and icons
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTachometerAlt, faShoppingBag } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faTachometerAlt,
+    faShoppingCart,
+    faBox,
+    faUsers,
+    faTag,
+    faChartBar,
+    faChartLine,
+    faCreditCard,
+    faCog,
+} from "@fortawesome/free-solid-svg-icons";
+
 import { Link, Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import app_logo from './assets/app_logo.png'
 // components ffrom views folder
 import Dashboard from './views/dashboard/Dashboard.jsx'
+import OrderScreen from './views/order/OrderScreen.jsx'
+import Product from './views/product/Product.jsx'
+import Customer from './views/customer/Customer.jsx'
 import api from './axios.js'
 
 
@@ -39,7 +53,7 @@ const AppStructure = () => {
             console.log(err, 'something went wrong from getting the vendor profile')
         }
     }
-    
+
     // console.log(VendorProfileData, 'VendorData')
 
     useEffect(
@@ -52,9 +66,9 @@ const AppStructure = () => {
     )
 
     useEffect(
-        ()=>{
+        () => {
             UserProfile()
-        },[]
+        }, []
     )
 
     return (
@@ -64,20 +78,50 @@ const AppStructure = () => {
                     <img src={app_logo} alt="" />
                 </div>
                 <nav>
-                    <Link className='active' onClick={acitve_nav} to='/'><FontAwesomeIcon icon={faTachometerAlt} />Dashboard</Link>
-                    <Link onClick={acitve_nav} to='/orders'><FontAwesomeIcon icon={faShoppingBag} />Orders</Link>
-                    <Link onClick={acitve_nav} to='/products'><FontAwesomeIcon icon={faShoppingBag} />Products</Link>
-                    <Link onClick={acitve_nav} to='/customer'><FontAwesomeIcon icon={faShoppingBag} />Customers</Link>
-                    <Link onClick={acitve_nav} to='/discount'><FontAwesomeIcon icon={faShoppingBag} />Discount</Link>
-                    <Link onClick={acitve_nav} to='/reports'><FontAwesomeIcon icon={faShoppingBag} />Reports</Link>
+                    <Link className='active' onClick={acitve_nav} to='/'>
+                        <FontAwesomeIcon icon={faTachometerAlt} /> Dashboard
+                    </Link>
+
+                    <Link onClick={acitve_nav} to='/orders'>
+                        <FontAwesomeIcon icon={faShoppingCart} /> Orders
+                    </Link>
+
+                    <Link onClick={acitve_nav} to='/products'>
+                        <FontAwesomeIcon icon={faBox} /> Products
+                    </Link>
+
+                    <Link onClick={acitve_nav} to='/customer'>
+                        <FontAwesomeIcon icon={faUsers} /> Customers
+                    </Link>
+
+                    <Link onClick={acitve_nav} to='/discount'>
+                        <FontAwesomeIcon icon={faTag} /> Discount
+                    </Link>
+
+                    <Link onClick={acitve_nav} to='/reports'>
+                        <FontAwesomeIcon icon={faChartBar} /> Reports
+                    </Link>
+
+                    <Link onClick={acitve_nav} to='/analytics'>
+                        <FontAwesomeIcon icon={faChartLine} /> Analytics
+                    </Link>
+
+                    <Link onClick={acitve_nav} to='/payment'>
+                        <FontAwesomeIcon icon={faCreditCard} /> Payment
+                    </Link>
+
+                    <Link onClick={acitve_nav} to='/settings'>
+                        <FontAwesomeIcon icon={faCog} /> Settings
+                    </Link>
+
                 </nav>
-                <div className='user_logout' onClick={()=>{
+                <div className='user_logout' onClick={() => {
                     localStorage.removeItem('vendorRef')
                     userNavigate('/login')
                 }}>Logout</div>
             </div>
 
-            <div className='container' >
+            <div className='_container_' >
                 <div className='header'>
                     <div>{userSlice_NavigationData?.navigateScreen} - {VendorProfileData?.fullname}</div>
                 </div>
@@ -86,9 +130,9 @@ const AppStructure = () => {
 
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
-                        <Route path="/orders" element={<h1>this is orders</h1>} />
-                        <Route path="/products" element={<h1>this is products</h1>} />
-                        <Route path="/customer" element={<h1>this is customer</h1>} />
+                        <Route path="/orders" element={<OrderScreen />} />
+                        <Route path="/products" element={<Product />} />
+                        <Route path="/customer" element={<Customer />} />
                         <Route path="/discount" element={<h1>this is discount</h1>} />
                         <Route path="/reports" element={<h1>this is reports</h1>} />
                     </Routes>

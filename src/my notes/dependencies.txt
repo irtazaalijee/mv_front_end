@@ -1,0 +1,6 @@
+npm install recharts
+[Using Rechart Library for the charts]
+---------------------------------------------
+
+npm install -D tailwindcss@latest postcss autoprefixer
+npx tailwindcss init -p

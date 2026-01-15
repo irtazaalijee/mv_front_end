@@ -1,42 +1,213 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* color-scheme: light dark; */
+  /* color: rgba(255, 255, 255, 0.87); */
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+* {
+  padding: 0;
+  margin: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  /* place-items: center; */
+  /* min-width: 320px;
+  min-height: 100vh; */
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
   }
-  to {
-    transform: rotate(360deg);
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+
+
+
+/* Tailwind  */
+/* Tailwind  */
+/* Tailwind  */
+/* Tailwind  */
+
+
+
+/* --------------------------APP STRUCTURE ---------------------------------------*/
+/* --------------------------APP STRUCTURE ---------------------------------------*/
+/* --------------------------APP STRUCTURE ---------------------------------------*/
+/* --------------------------APP STRUCTURE ---------------------------------------*/
+/* --------------------------APP STRUCTURE ---------------------------------------*/
+/* --------------------------APP STRUCTURE ---------------------------------------*/
+/* --------------------------APP STRUCTURE ---------------------------------------*/
+/* --------------------------APP STRUCTURE ---------------------------------------*/
+/* --------------------------APP STRUCTURE ---------------------------------------*/
+/* index.css */
+:root {
+  --primary-color: #15adfd;
+  --secondary-color: #eaeaea;
+  --secondary-color2: #333;
+  --text-color: #5c5c5c;
+  --text-color-2: white;
+  --text-color-3: whitesmoke;
+  --sidebar-width: 200px;
+  --font-size-base: 16px;
 }
 
-.card {
-  padding: 2em;
+body {
+  overflow-x: hidden;
+  /* overflow-y: hidden; */
+
 }
 
-.read-the-docs {
-  color: #888;
-} */
+.__app__ {
+  display: flex;
+  /* border: 1px solid; */
+  width: 100vw;
+  /* height: 100vh; */
+  overflow-y: auto;
+  overflow-x: scroll;
+}
+
+.__app__ .sidebar {
+  box-sizing: border-box;
+  box-sizing: content-box;
+  min-width: var(--sidebar-width);
+  height: 100vh;
+  /* position: absolute; */
+  position: fixed;
+
+  background-color: var(--secondary-color);
+}
+
+.__app__ .sidebar .app_logo {
+  width: var(--sidebar-width);
+}
+
+.__app__ .sidebar .app_logo img {
+  width: 100%;
+}
+
+.__app__ .sidebar nav {
+  width: var(--sidebar-width);
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px 10px;
+}
+
+.__app__ .sidebar nav a,
+.user_logout {
+  height: 40px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+  border-radius: 6px;
+  display: flex;
+  gap: 7px;
+}
+
+.__app__ .sidebar .user_logout {
+  padding: 0px 24px;
+  cursor:pointer;
+}
+
+.__app__ .sidebar nav a.active {
+  background-color: var(--secondary-color2);
+  color: var(--text-color-2);
+}
+
+.__app__ ._container_ {
+  margin-left: var(--sidebar-width);
+  flex-grow: 1;
+  background-color: var(--text-color-3);
+}
+
+.__app__ .body {
+     padding: 10px 28px 10px 10px;
+}
+
+.__app__ ._container_ .header {
+  width: 100%;
+  background-color: var(--secondary-color);
+  height: 60px;
+  position: sticky;
+  top: 0%;
+
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 10px;
+  color: var(--text-color-2);
+}
+
+.__app__ ._container_ .header div {
+  color: var(--text-color);
+}
+
